@@ -1,6 +1,6 @@
 {
   "name": "circ-msgpack",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A minimalistic, extensible MessagePack encoder and decoder for the web, supporting circular references. Built upon tiny-msgpack.",
   "main": "./app/dist/esm/circMsgpack.mjs",
   "types": "./app/dist/esm/circMsgpack.d.ts",
