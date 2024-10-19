@@ -1,8 +1,11 @@
 # Circ msgpack
 
-A minimalistic, extensible MessagePack encoder and decoder for the web, supporting circular references. Built upon tiny-msgpack.
+A minimalistic, extensible MessagePack encoder and decoder for the web, supporting circular references. Built upon [tiny-msgpack](https://www.npmjs.com/package/tiny-msgpack).
 
-> Please note that Circ msgpack is currently under development and not yet suited for production
+**Why not just use [tiny-msgpack](https://www.npmjs.com/package/tiny-msgpack)?**
+
+This library adds support for circular references and `undefined` as a value.
+
 
 ## Installation
 
@@ -15,9 +18,15 @@ A minimalistic, extensible MessagePack encoder and decoder for the web, supporti
 
 
 ```ts
-import circMsgpack from "circ-msgpack"
+import { encode, decode } from "circ-msgpack"
 
-circMsgpack()
+const ob = { a: 1, b: "2", c: undefined }
+ob.d = ob
+
+const encoded = encode(ob)
+const decoded = decode(encoded)
+
+console.log(deepCircularEqual(ob, decoded)) // true
 ```
 
 ## Contribute
